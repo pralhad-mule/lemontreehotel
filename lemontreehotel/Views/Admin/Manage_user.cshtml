@@ -1,0 +1,126 @@
+﻿@*@model List<lemontreehotel.Models.userRegister>*@
+@*@using System.Data.SqlClient;*@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>manage_users</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+            table th, table td {
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: center;
+            }
+
+            table th {
+                background: #3498db;
+                color: white;
+            }
+
+        .btn {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+        }
+
+        .edit {
+            background: #f39c12;
+        }
+
+        .delete {
+            background: #e74c3c;
+        }
+
+        .add {
+            background: #2ecc71;
+            padding: 10px 15px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        👤 Manage User Dashboard
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+
+            <a href="/UserRegistration/UserReg" class="btn add">+ Add User</a>
+
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile No</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>Address</th>
+                    <th>Password</th>
+                </tr>
+                @*@{
+
+                    string path = "Data Source=pralhad\\SQLEXPRESS;Initial Catalog=ItHotel;Integrated Security=True";
+                    SqlConnection sc = new SqlConnection(path);
+                    sc.Open();
+
+                    string query = "SELECT * FROM userRegister";
+                    SqlCommand cmd = new SqlCommand(query, sc);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                }*@
+
+
+
+
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

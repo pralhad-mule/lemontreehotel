@@ -1,0 +1,141 @@
+﻿@model lemontreehotel.Models.manager
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Delete Manager - Lemon Tree Hotel</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../Imagess/facade-night-view.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .delete-container {
+            width: 500px;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border-top: 8px solid #f4c430;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: #f4c430;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 26px;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .warning {
+            color: red;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .manager-info {
+            text-align: left;
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            line-height: 2;
+            border-left: 5px solid #f4c430;
+        }
+
+            .manager-info strong {
+                color: #222;
+            }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .btn-delete {
+            width: 50%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: red;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+            .btn-delete:hover {
+                background: darkred;
+            }
+
+        .btn-cancel {
+            width: 50%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #f4c430;
+            color: black;
+            font-size: 17px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+            .btn-cancel:hover {
+                background: #d9aa00;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="delete-container">
+
+        <div class="logo">🍋 Lemon Tree Hotel</div>
+        <div class="title">Delete Manager</div>
+
+        <div class="warning">
+            ⚠ Are you sure you want to delete this manager?
+        </div>
+
+        <div class="manager-info"> <br />
+            <strong>Email:</strong> <br />
+            <strong>Phone:</strong>  <br />
+            <strong>password::</strong>  <br />
+            <strong>Branch:</strong> 
+        </div>
+
+        
+
+    </div>
+
+</body>
+</html>

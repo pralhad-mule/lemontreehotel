@@ -1,0 +1,285 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>admindashbord</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI',sans-serif;
+        }
+
+        body {
+            background: #f1f5f9;
+        }
+
+        /* Sidebar */
+
+        .sidebar {
+            width: 260px;
+            height: 100vh;
+            background: #111827;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 20px;
+            color: white;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+            .logo h1 {
+                color: #facc15;
+                font-size: 30px;
+            }
+
+            .logo p {
+                color: #cbd5e1;
+                margin-top: 5px;
+                font-size: 14px;
+            }
+
+        .menu {
+            margin-top: 20px;
+        }
+
+            .menu a {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                text-decoration: none;
+                color: white;
+                padding: 15px;
+                margin-bottom: 15px;
+                border-radius: 12px;
+                transition: 0.3s;
+                font-size: 16px;
+            }
+
+                .menu a:hover {
+                    background: #facc15;
+                    color: #111827;
+                    transform: translateX(5px);
+                }
+
+        /* Main Content */
+
+        .main {
+            margin-left: 260px;
+            padding: 30px;
+        }
+
+        .topbar {
+            background: white;
+            padding: 20px;
+            border-radius: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+            .topbar h2 {
+                color: #111827;
+            }
+
+        .admin-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+            .admin-profile img {
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+            }
+
+        /* Cards */
+
+        .cards {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+            gap: 25px;
+        }
+
+        .card {
+            padding: 25px;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+            .card i {
+                font-size: 40px;
+                margin-bottom: 15px;
+            }
+
+            .card h3 {
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+
+            .card p {
+                font-size: 16px;
+            }
+
+        .card1 {
+            background: linear-gradient(135deg,#2563eb,#1d4ed8);
+        }
+
+        .card2 {
+            background: linear-gradient(135deg,#059669,#047857);
+        }
+
+        .card3 {
+            background: linear-gradient(135deg,#d97706,#b45309);
+        }
+
+        .card4 {
+            background: linear-gradient(135deg,#dc2626,#991b1b);
+        }
+
+        /* Table */
+
+        .table-section {
+            margin-top: 40px;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+            .table-section h2 {
+                margin-bottom: 20px;
+                color: #111827;
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            table th {
+                background: #111827;
+                color: white;
+                padding: 15px;
+                text-align: left;
+            }
+
+            table td {
+                padding: 14px;
+                border-bottom: 1px solid #ddd;
+            }
+
+        .btn {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .edit {
+            background: #2563eb;
+        }
+
+        .delete {
+            background: #dc2626;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+            <h1>Lemon Tree</h1>
+            <p>Hotel Admin Panel</p>
+        </div>
+
+        <div class="menu">
+
+            <a href="#">
+                <i class="fa-solid fa-chart-line"></i>
+                Dashboard
+            </a>
+
+            <a href="/Admin/Manage_Managers">
+                <i class="fa-solid fa-user-tie"></i>
+                Manage Managers
+            </a>
+
+            <a href="Manage_user">
+                <i class="fa-solid fa-users"></i>
+                Manage Users
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-hotel"></i>
+                Room Management
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-calendar-check"></i>
+                Bookings
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-money-bill"></i>
+                Payments
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+
+            <a href="/Home","Index">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="main">
+
+        <div class="topbar">
+
+            <h2>Welcome Admin 👋</h2>
+
+            <div class="admin-profile">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+                <span>Administrator</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

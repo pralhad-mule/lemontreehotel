@@ -1,0 +1,265 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add_Manager</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:
+            linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+            url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1400&auto=format&fit=crop');
+            background-size:cover;
+            background-position:center;
+        }
+
+        .form-container{
+            width:450px;
+            background:rgba(255,255,255,0.12);
+            backdrop-filter:blur(12px);
+            border:1px solid rgba(255,255,255,0.2);
+            border-radius:25px;
+            padding:40px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.4);
+            color:white;
+        }
+
+        .logo{
+            text-align:center;
+            margin-bottom:15px;
+        }
+
+        .logo i{
+            font-size:50px;
+            color:#ffd700;
+            margin-bottom:10px;
+        }
+
+        .logo h1{
+            font-size:32px;
+            letter-spacing:1px;
+        }
+
+        .logo span{
+            color:#ffd700;
+        }
+
+        .subtitle{
+            text-align:center;
+            margin-bottom:30px;
+            color:#eaeaea;
+            font-size:15px;
+        }
+
+        .input-group{
+            margin-bottom:22px;
+        }
+
+        .input-group label{
+            display:block;
+            margin-bottom:8px;
+            font-size:15px;
+            font-weight:500;
+        }
+
+        .input-box{
+            position:relative;
+        }
+
+        .input-box i{
+            position:absolute;
+            top:50%;
+            left:16px;
+            transform:translateY(-50%);
+            color:#ffd700;
+            font-size:16px;
+        }
+
+        .input-box input{
+            width:100%;
+            padding:15px 15px 15px 48px;
+            border:none;
+            outline:none;
+            border-radius:12px;
+            background:rgba(255,255,255,0.15);
+            color:white;
+            font-size:15px;
+            transition:0.3s;
+        }
+
+        .input-box input::placeholder{
+            color:#ddd;
+        }
+
+        .input-box input:focus{
+            background:rgba(255,255,255,0.22);
+            border:1px solid #ffd700;
+            box-shadow:0 0 10px rgba(255,215,0,0.4);
+        }
+
+        .submit-btn{
+            width:100%;
+            padding:15px;
+            border:none;
+            border-radius:14px;
+            background:linear-gradient(135deg,#ffd700,#ffb300);
+            color:#222;
+            font-size:17px;
+            font-weight:700;
+            cursor:pointer;
+            transition:0.3s;
+            margin-top:10px;
+        }
+
+        .submit-btn:hover{
+            transform:translateY(-3px);
+            box-shadow:0 10px 20px rgba(255,215,0,0.35);
+        }
+
+        .submit-btn i{
+            margin-right:8px;
+        }
+
+        .footer-text{
+            text-align:center;
+            margin-top:18px;
+            font-size:13px;
+            color:#ddd;
+        }
+
+        media(max-width:500px){
+
+            .form-container{
+                width:90%;
+                padding:30px 22px;
+            }
+
+            .logo h1{
+                font-size:26px;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+
+        <div class="logo">
+            <i class="fa-solid fa-hotel"></i>
+            <h1>Lemon <span>Tree</span></h1>
+        </div>
+
+        <p class="subtitle">
+            Add New Manager Details
+        </p>
+
+        @using (Html.BeginForm("Add_Manager", "Admin", FormMethod.Post))
+
+        {
+
+
+
+            <div class="input-group">
+                <label>Manager Name</label>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-user"></i>
+
+                    <input type="text" name="name" required
+                           placeholder="Enter manager full name">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <input type="email" name="email"
+                           placeholder="Enter email address">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Mobile Number</label>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-phone"></i>
+
+                    <input type="tel" name="phone"
+                           placeholder="Enter mobile number">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Set Password</label>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input type="password" name="password"
+                           placeholder="Please Set a Password" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Branch</label>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-code-branch"></i>
+
+                    <input type="bran" name="branch"
+                           placeholder="Enter Branch">
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="fa-solid fa-plus"></i>
+                Add Manager
+            </button>
+
+
+            <button type="button" class="back-btn"
+                    onclick="window.location.href='@Url.Action("admindashbord","Admin")'">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back
+            </button>
+        }
+
+
+        @ViewData["Status"]
+
+
+
+
+        <div class="footer-text">
+            Lemon Tree Hotel Management System
+        </div>
+
+    </div>
+
+</body>
+</html>

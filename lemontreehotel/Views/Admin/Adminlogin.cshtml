@@ -1,0 +1,231 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Lemon Tree Hotel - Admin Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .login-container {
+            width: 420px;
+            padding: 45px;
+            border-radius: 28px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            animation: fadeIn 1s ease;
+        }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+            .logo h1 {
+                font-size: 38px;
+                color: #facc15;
+                font-weight: 700;
+                letter-spacing: 1px;
+            }
+
+            .logo p {
+                margin-top: 8px;
+                font-size: 15px;
+                color: #f1f5f9;
+            }
+
+        .input-box {
+            margin-bottom: 22px;
+        }
+
+            .input-box label {
+                display: block;
+                margin-bottom: 8px;
+                font-size: 14px;
+                color: #f8fafc;
+            }
+
+            .input-box input {
+                width: 100%;
+                padding: 15px;
+                border: none;
+                outline: none;
+                border-radius: 14px;
+                background: rgba(255,255,255,0.15);
+                color: white;
+                font-size: 15px;
+                transition: 0.3s;
+            }
+
+                .input-box input:focus {
+                    background: rgba(255,255,255,0.22);
+                    box-shadow: 0 0 10px rgba(250,204,21,0.5);
+                }
+
+                .input-box input::placeholder {
+                    color: #e2e8f0;
+                }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+            .options a {
+                color: #facc15;
+                text-decoration: none;
+                transition: 0.3s;
+            }
+
+                .options a:hover {
+                    text-decoration: underline;
+                }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 14px;
+            background: linear-gradient(to right, #facc15, #eab308);
+            color: #111827;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+            .login-btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(250,204,21,0.4);
+            }
+
+        .message {
+            margin-top: 18px;
+            text-align: center;
+            color: #facc15;
+            font-weight: 500;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 28px;
+            font-size: 13px;
+            color: #e5e7eb;
+        }
+
+        .icon {
+            font-size: 55px;
+            margin-bottom: 12px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="logo">
+
+            <div class="icon">🏨</div>
+
+            <h1>Lemon Tree Hotel</h1>
+
+            <p>Admin Management Login Panel</p>
+
+        </div>
+
+        @using (Html.BeginForm("Adminlogin", "Admin", FormMethod.Post))
+        {
+
+            <div class="input-box">
+
+                <label>Email Address</label>
+
+                <input type="email"
+                       name="n"
+                       placeholder="Enter admin email" name="e"
+                       required />
+
+            </div>
+
+            <div class="input-box">
+
+                <label>Password</label>
+
+                <input type="password"
+                       name="p"
+                       placeholder="Enter password" name="p"
+                       required />
+
+            </div>
+
+            <div class="options">
+
+                <label>
+                    <input type="checkbox" />
+                    Remember Me
+                </label>
+
+                <a href="#">Forgot Password?</a>
+
+            </div>
+
+            <button type="submit" class="login-btn">
+                Login
+            </button>
+        }
+
+        @ViewBag.s
+
+        <div class="footer">
+            © 2026 Lemon Tree Hotel | Secure Admin Access
+        </div>
+
+    </div>
+
+</body>
+</html>

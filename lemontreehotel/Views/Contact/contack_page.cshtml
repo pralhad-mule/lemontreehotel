@@ -1,0 +1,274 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Lemon Tree Hotel - Contact</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <style>
+        :root{
+            --green-1:#2e7d32;
+            --green-2:#66bb6a;
+            --muted:#9aa3a6;
+            --footer-bg:#070707;
+            --container-width:1100px;
+        }
+
+        *{box-sizing:border-box;font-family:"Segoe UI",Roboto,Arial,sans-serif;margin:0;padding:0}
+        body{background:#fff;color:#222;line-height:1.5}
+
+        /* Back Button */
+        .back-container{
+            max-width:var(--container-width);
+            margin:20px auto 0;
+            padding:0 20px;
+        }
+
+        .back-btn{
+            display:inline-block;
+            padding:10px 18px;
+            background:var(--green-1);
+            color:#fff;
+            text-decoration:none;
+            border-radius:6px;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .back-btn:hover{
+            background:#1b5e20;
+        }
+
+        /* Top contact strip */
+        .contact-strip{
+            max-width:var(--container-width);
+            margin:40px auto 30px;
+            display:flex;
+            gap:30px;
+            align-items:center;
+            justify-content:space-between;
+            padding:30px 20px;
+        }
+
+        .contact-item{
+            flex:1;
+            text-align:center;
+            color:#333;
+            position:relative;
+            padding:0 20px;
+        }
+
+        .contact-item + .contact-item::before{
+            content:'';
+            position:absolute;
+            left:0;
+            top:12px;
+            bottom:12px;
+            width:1px;
+            background:#e6e6e6;
+            transform:translateX(-50%);
+        }
+
+        .contact-icon{
+            width:28px;height:28px;
+            vertical-align:middle;
+            margin-right:10px;
+            opacity:0.85;
+        }
+
+        .contact-title{
+            font-size:18px;
+            color:#374244;
+            vertical-align:middle;
+        }
+
+        .contact-body{
+            color:var(--muted);
+            margin-top:6px;
+            font-size:14px;
+            max-width:320px;
+            margin-left:auto;
+            margin-right:auto;
+        }
+
+        /* Footer */
+        .footer{
+            background:var(--footer-bg);
+            color:#fff;
+            padding:56px 20px;
+        }
+
+        .footer-inner{
+            max-width:var(--container-width);
+            margin:0 auto;
+            display:flex;
+            gap:40px;
+            flex-wrap:wrap;
+        }
+
+        .footer-col{
+            flex:1;
+            min-width:160px;
+            color:#ddd;
+        }
+
+        .footer-col h3{
+            color:#fff;
+            font-size:18px;
+            margin-bottom:16px;
+        }
+
+        .footer-links{
+            list-style:none;
+        }
+
+        .footer-links li{
+            margin:10px 0;
+            font-size:14px;
+        }
+
+        .newsletter form{display:flex;gap:12px;align-items:center}
+        .newsletter input[type="email"]{
+            padding:12px;
+            border-radius:6px;
+            border:1px solid #e0dfe0;
+            min-width:260px;
+        }
+
+        .newsletter button{
+            background:#d6b86b;
+            color:#111;
+            padding:10px 16px;
+            border-radius:6px;
+            border:none;
+            font-weight:600;
+            cursor:pointer;
+        }
+
+        .socials{display:flex;gap:10px}
+        .social-btn{
+            width:36px;height:36px;
+            border-radius:6px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:#111;
+            color:#fff;
+        }
+
+        .copyright{
+            text-align:center;
+            margin-top:28px;
+            color:#bdbdbd;
+            font-size:13px;
+        }
+
+        media (max-width:900px){
+            .contact-strip{flex-direction:column;gap:16px}
+            .footer-inner{flex-direction:column}
+            .newsletter form{flex-direction:column}
+            .newsletter input{width:100%}
+            .newsletter button{width:100%}
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🔙 Back Button -->
+    <div class="back-container">
+        <a href='@Url.Action("Index","Home")' class="back-btn">
+            ⬅ Back
+        </a>
+    </div>
+
+    <!-- Contact Strip -->
+    <section class="contact-strip">
+
+        <div class="contact-item">
+            <div>
+                <span class="contact-title">Address</span>
+            </div>
+            <div class="contact-body">
+                15 & 15A, Survey No. 40, Connaught Rd,<br />
+                Modi Colony, Pune, Maharashtra 411001
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <div>
+                <span class="contact-title">Phone</span>
+            </div>
+            <div class="contact-body">
+                <div><strong>Reservations:</strong> +91 880576671</div>
+                <div><strong>Corporate:</strong> +91 8263026105</div>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <div>
+                <span class="contact-title">Email</span>
+            </div>
+            <div class="contact-body">
+                reservations@lemontreehotels.com
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+
+            <div class="footer-col">
+                <h3>Our Presence</h3>
+                <ul class="footer-links">
+                    <li>About Us</li>
+                    <li>Careers</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Links</h3>
+                <ul class="footer-links">
+                    <li>Blogs</li>
+                    <li>Terms</li>
+                    <li>Privacy</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <div class="newsletter">
+                
+                    
+                        <input type="email" name="Email" placeholder="Enter Email" required /><br /><br />
+                        <button type="submit">SUBMIT</button>
+                    
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Follow</h3>
+                <div class="socials">
+                    <div class="social-btn">f</div>
+                    <div class="social-btn">x</div>
+                    <div class="social-btn">in</div>
+                    <div class="social-btn">ig</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            ©2026 LEMON TREE HOTELS LTD
+        </div>
+    </footer>
+
+</body>
+</html>

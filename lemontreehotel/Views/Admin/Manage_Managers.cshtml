@@ -1,0 +1,162 @@
+﻿@model List<lemontreehotel.Models.manager>
+@using System.Data.SqlClient;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Manage_Managers</title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('../../Imagess/facade-night-view.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Georgia, serif;
+        }
+
+        .container {
+            width: 95%;
+            margin: 20px auto;
+            background: #f5f5f5;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #000;
+            font-size: 28px;
+        }
+
+        .add-btn {
+            background: #1abc9c;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+            .add-btn:hover {
+                background: #16a085;
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: #f1c232;
+        }
+
+        th {
+            text-align: left;
+            padding: 14px;
+            font-size: 18px;
+            color: #000;
+        }
+
+        td {
+            padding: 18px 14px;
+            font-size: 16px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .edit-btn {
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .delete-btn {
+            background: #ea4335;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-left: 5px;
+        }
+
+        .edit-btn:hover {
+            background: #2f6fdd;
+        }
+
+        .delete-btn:hover {
+            background: #d93025;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="container">
+
+        <h1>Manage Managers</h1>
+
+        <a href="/Admin/Add_Manager">
+            <button class="add-btn">+ Add Manager</button>
+        </a>
+
+        <table>
+
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>phone</th>
+                <th>password</th>
+                <th>Branch</th>
+            </tr>
+            @{
+                string path = "Data Source=pralhad\\SQLEXPRESS;Initial Catalog=ItHotel;Integrated Security=True";
+
+                SqlConnection sc = new SqlConnection(path);
+                sc.Open();
+                string query = "SELECT * FROM manager";
+                SqlCommand cmd = new SqlCommand(query, sc);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    <tr>
+                        <td>@reader["id"]</td>
+                        <td>@reader["name"]</td>
+                        <td>@reader["email"]</td>
+                        <td>@reader["phone"]</td>
+                        <td>@reader["password"]</td>
+                        <td>@reader["branch"]</td>
+                        <td>
+                            <a href="/Admin/editmanager?id=@reader["id"]" class="edit-btn">Edit</a>
+                            <a href="/Admin/deletemanager?id=@reader["id"]" class="delete-btn">Delete</a>
+                        </td>
+                </tr>
+                    }
+                }
+
+        </table>
+
+    </div>
+
+</body>
+</html>

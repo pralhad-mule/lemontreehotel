@@ -120,6 +120,7 @@
     <Content Include="Views\Contact\contack_page.cshtml" />
     <Content Include="Views\UserRegistration\UserReg.cshtml" />
     <Content Include="Views\Admin\Manage_user.cshtml" />
+    <Content Include="Views\UserRegistration\userlogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -24,7 +24,7 @@ namespace lemontreehotel.Models
 
         public string password { get; set; }
 
-        public string conform_password { get; set; }
+        public string confirm_password { get; set; }
 
     }
 }

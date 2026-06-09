@@ -98,6 +98,7 @@
     <Content Include="Imagess\rooms\premiumroom.jpg" />
     <Content Include="Imagess\rooms\presendiital.jpg" />
     <Content Include="Imagess\rooms\standard.png" />
+    <Content Include="Imagess\rooms\superdelex.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +112,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\manager.cs" />
     <Compile Include="Models\userRegister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,6 +134,17 @@
     <Content Include="Views\UserRegistration\userlogin.cshtml" />
     <Content Include="Views\Manager\managerlogin.cshtml" />
     <Content Include="Views\rooms\Room.cshtml" />
+    <Content Include="Views\rooms\view_details_standard.cshtml" />
+    <Content Include="Views\rooms\view_details_delux.cshtml" />
+    <Content Include="Views\rooms\view_details_superdelux.cshtml" />
+    <Content Include="Views\rooms\view_details_family.cshtml" />
+    <Content Include="Views\rooms\view_details_president.cshtml" />
+    <Content Include="Views\rooms\view_details_metting.cshtml" />
+    <Content Include="Views\rooms\view_details_executative.cshtml" />
+    <Content Include="Views\rooms\view_details_premium.cshtml" />
+    <Content Include="Views\rooms\view_details_luxary.cshtml" />
+    <Content Include="Views\rooms\view_details_business.cshtml" />
+    <Content Include="Views\rooms\book_room.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

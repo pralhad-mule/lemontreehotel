@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel Booking Form</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            /* ✅ Online Hotel Image */
+            background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+        .container {
+            width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            color: #444;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+            input:focus, select:focus {
+                border-color: #2196F3;
+                outline: none;
+                box-shadow: 0px 0px 5px #90caf9;
+            }
+
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+
+            .row div {
+                flex: 1;
+            }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background: #1976D2;
+            }
+
+        .price-box {
+            background: #f1f8e9;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Hotel Booking Form</h2>
+
+        <form>
+
+            <label>Customer Name</label>
+            <input type="text" placeholder="Enter your name">
+
+            <label>Email</label>
+            <input type="email" placeholder="Enter email">
+
+            <label>Phone</label>
+            <input type="text" placeholder="Enter phone number">
+
+            <label>Room Type</label>
+            <select>
+                <option>-- Select Room --</option>
+                <option>Standard</option>
+                <option>Deluxe</option>
+                <option>Super Deluxe</option>
+                <option>Executive</option>
+                <option>Luxury</option>
+                <option>Business</option>
+            </select>
+
+            <div class="row">
+                <div>
+                    <label>Check-In</label>
+                    <input type="date">
+                </div>
+
+                <div>
+                    <label>Check-Out</label>
+                    <input type="date">
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label>Guests</label>
+                    <input type="number" placeholder="No. of guests">
+                </div>
+
+                <div>
+                    <label>Price/Night</label>
+                    <input type="number" placeholder="₹">
+                </div>
+            </div>
+
+            <div class="price-box">
+                Total Price will be calculated after booking
+            </div>
+
+            <button type="submit">Book Now</button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

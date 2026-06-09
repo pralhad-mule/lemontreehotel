@@ -92,7 +92,7 @@ namespace lemontreehotel.Controllers
             if (dr.Read())
             {
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Room", "rooms");
             }
             else
             {

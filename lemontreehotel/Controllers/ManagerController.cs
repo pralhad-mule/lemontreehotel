@@ -36,6 +36,11 @@ namespace lemontreehotel.Controllers
 
         }
 
+        public ActionResult managerlogin()
+        {
+            return View();
+        }
+
         
     }
 }

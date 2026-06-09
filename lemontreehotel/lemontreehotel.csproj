@@ -90,6 +90,14 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Imagess\facade-night-view.jpg" />
+    <Content Include="Imagess\rooms\businessroom.jpg" />
+    <Content Include="Imagess\rooms\Delex.png" />
+    <Content Include="Imagess\rooms\Executativeroom.jpg" />
+    <Content Include="Imagess\rooms\familyroom.png" />
+    <Content Include="Imagess\rooms\luxary room.jpg" />
+    <Content Include="Imagess\rooms\premiumroom.jpg" />
+    <Content Include="Imagess\rooms\presendiital.jpg" />
+    <Content Include="Imagess\rooms\standard.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +106,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\rooms.cs" />
     <Compile Include="Controllers\UserRegistrationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -121,6 +130,8 @@
     <Content Include="Views\UserRegistration\UserReg.cshtml" />
     <Content Include="Views\Admin\Manage_user.cshtml" />
     <Content Include="Views\UserRegistration\userlogin.cshtml" />
+    <Content Include="Views\Manager\managerlogin.cshtml" />
+    <Content Include="Views\rooms\Room.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

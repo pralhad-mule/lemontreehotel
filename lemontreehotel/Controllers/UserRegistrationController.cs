@@ -74,7 +74,7 @@ namespace lemontreehotel.Controllers
         [HttpPost]
 
 
-        public ActionResult userlogin(string email,string password)
+        public ActionResult userlogin(string email, string password)
         {
 
             string path = "Data Source=pralhad\\SQLEXPRESS;Initial Catalog=ItHotel;Integrated Security=True";
@@ -91,10 +91,6 @@ namespace lemontreehotel.Controllers
 
             if (dr.Read())
             {
-                Session["UserName"] = dr["name"].ToString();
-                Session["UserEmail"] = dr["email"].ToString();
-
-                sc.Close();
 
                 return RedirectToAction("Index", "Home");
             }
@@ -104,14 +100,10 @@ namespace lemontreehotel.Controllers
             }
 
             sc.Close();
+            return View();  
 
-            return View();
         }
 
-           
-        
-
-        
         
     }
 }

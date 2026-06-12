@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using lemontreehotel.Models;
+using System.Data.SqlClient;
+using System.Web.Mvc;
 
 namespace lemontreehotel.Controllers
 {
@@ -9,7 +11,8 @@ namespace lemontreehotel.Controllers
             return View();
         }
 
-        // show the details of room and services    
+/// ///////////////////////////////////////////////////////////////////////////////////////////////
+    
         public ActionResult view_details_standard()
         {
             return View();
@@ -52,10 +55,36 @@ namespace lemontreehotel.Controllers
             return View();
         }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
         //boooking the room
         public ActionResult book_room()
         {
             return View();
         }
+
+        [HttpPost]
+
+        public ActionResult book_room(Booking b)
+        {
+;
+        
+            string path = "Data Source=pralhad\\SQLEXPRESS;Initial Catalog=ItHotel;Integrated Security=True";
+             SqlConnection sc=new SqlConnection(path);
+            sc.Open();
+
+            ViewData["status"] = "Booksuccessfully successfully";
+
+            string insert = "insert into roombook(custimername,email,phone,roomtype,CheckInDate,CheckOutDate,Guests,Price_Per_Nigh,TotalPrice )" +
+                " values('"+b.custimername+"','"+ b.email+"' , '"+ b.phone+"' ,'"+ b.roomtype+"' , '"+ b .CheckInDate+"' , '"+ b. CheckOutDate+"' , '"+b.Guests+"','"+ b.Price_Per_Nigh+"' ,'"+b. TotalPrice + "')";
+            SqlCommand scom = new SqlCommand(insert, sc);
+            scom.ExecuteNonQuery();
+
+
+            return View();
+        }
+
     }
 }

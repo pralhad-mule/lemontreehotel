@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@Model lemontreehotel.models.Booking
+{
+    Layout = null;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>Hotel Booking Form</title>
@@ -15,6 +20,7 @@
             background-repeat: no-repeat;
             height: 100vh;
         }
+
         .container {
             width: 500px;
             margin: 50px auto;
@@ -95,61 +101,153 @@
 
         <h2>Hotel Booking Form</h2>
 
-        <form>
-
-            <label>Customer Name</label>
-            <input type="text" placeholder="Enter your name">
+        @using (Html.BeginForm("book_room", "rooms", FormMethod.Post))
+        {
+            <label> Name</label>
+            <input type="text" placeholder="Enter your name" name="custimername">
 
             <label>Email</label>
-            <input type="email" placeholder="Enter email">
+            <input type="email" placeholder="Enter email" name="email">
 
             <label>Phone</label>
-            <input type="text" placeholder="Enter phone number">
+            <input type="text" placeholder="Enter phone number" name="phone">
 
             <label>Room Type</label>
-            <select>
+            <select name="roomtype">
                 <option>-- Select Room --</option>
-                <option>Standard</option>
-                <option>Deluxe</option>
-                <option>Super Deluxe</option>
+                <option> Standard </option>
+                <option> Deluxe </option>
+                <option> Super Deluxe </option>
+                <option> Family </option>
+                <option> President </option>
+                <option> Meeting </option>
                 <option>Executive</option>
-                <option>Luxury</option>
-                <option>Business</option>
+                <option> Premium </option>
+                <option> Luxury </option>
+                <option> Business </option>
+
             </select>
 
             <div class="row">
                 <div>
                     <label>Check-In</label>
-                    <input type="date">
+                    <input type="date" name="CheckInDate">
                 </div>
 
                 <div>
-                    <label>Check-Out</label>
-                    <input type="date">
+                    <label>heck-Out</label>
+                    <input type="date" name="CheckOutDate">
                 </div>
             </div>
 
             <div class="row">
                 <div>
-                    <label>Guests</label>
-                    <input type="number" placeholder="No. of guests">
+                    <label>No-Guests</label>
+                    <input type="number" placeholder="No. of guests" name="Guests">
                 </div>
 
                 <div>
                     <label>Price/Night</label>
-                    <input type="number" placeholder="₹">
+                    <input type="number" placeholder="₹" name="Price_Per_Nigh">
+
+                </div>
+                <div>
+                    <label>TotalPrice </label>
+                    <input type="number" placeholder="₹" name="totalprice" id="totalprice">
+
                 </div>
             </div>
 
-            <div class="price-box">
-                Total Price will be calculated after booking
-            </div>
-
+            @*<div class="price-box">
+                    Total Price will be show  after  selecting date....
+                </div>*@
             <button type="submit">Book Now</button>
+            @ViewData["status"]
 
-        </form>
+
+        }
 
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const roomType = document.querySelector("[name='roomtype']");
+            const guests = document.querySelector("[name='Guests']");
+            const price = document.querySelector("[name='Price_Per_Nigh']");
+            const checkIn = document.querySelector("[name='CheckInDate']");
+            const checkOut = document.querySelector("[name='CheckOutDate']");
+            const totalPrice = document.getElementById("totalprice");
+
+            function updateRoomDetails() {
+
+                if (roomType.value === "Standard") {
+                    guests.value = 2;
+                    price.value = 2500;
+                }
+                else if (roomType.value === "Deluxe") {
+                    guests.value = 3;
+                    price.value = 4000;
+                }
+                else if (roomType.value === "Super Deluxe") {
+                    guests.value = 4;
+                    price.value = 5500;
+                }
+                else if (roomType.value === "Family") {
+                    guests.value = 6;
+                    price.value = 7000;
+                }
+                else if (roomType.value === "Presidential") {
+                    guests.value = 8;
+                    price.value = 15000;
+                }
+                else if (roomType.value === "Meeting") {
+                    guests.value = 6;
+                    price.value = 1000;
+                }
+                else if (roomType.value === "Executive") {
+                    guests.value = 4;
+                    price.value = 6500;
+                }
+                else if (roomType.value === "Premium") {
+                    guests.value = 4;
+                    price.value = 8000;
+                }
+                else if (roomType.value === "Luxury") {
+                    guests.value = 5;
+                    price.value = 10000;
+                }
+                else if (roomType.value === "Business") {
+                    guests.value = 3;
+                    price.value = 9000;
+                }
+
+                calculateTotal();
+            }
+
+            function calculateTotal() {
+
+                if (checkIn.value && checkOut.value && price.value) {
+
+                    let inDate = new Date(checkIn.value);
+                    let outDate = new Date(checkOut.value);
+
+                    let days = (outDate - inDate) / (1000 * 60 * 60 * 24);
+
+                    if (days > 0) {
+                        totalPrice.value = days * parseInt(price.value);
+                    }
+                    else {
+                        totalPrice.value = "";
+                    }
+                }
+            }
+
+            roomType.addEventListener("change", updateRoomDetails);
+            checkIn.addEventListener("change", calculateTotal);
+            checkOut.addEventListener("change", calculateTotal);
+
+        });
+    </script>
 
 </body>
 </html>

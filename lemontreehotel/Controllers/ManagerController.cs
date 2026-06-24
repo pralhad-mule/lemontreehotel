@@ -76,7 +76,6 @@ namespace lemontreehotel.Controllers
                     CheckInDate = dr["CheckInDate"].ToString(),
                     CheckOutDate = dr["CheckOutDate"].ToString()
                 });
-
             }
 
             dr.Close();

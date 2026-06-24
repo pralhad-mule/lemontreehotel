@@ -69,13 +69,29 @@ namespace lemontreehotel.Controllers
 
         public ActionResult book_room(Booking b)
         {
-;
-        
+            //validation
+                        if (string.IsNullOrWhiteSpace(b.custimername) ||
+                string.IsNullOrWhiteSpace(b.email) ||
+                string.IsNullOrWhiteSpace(b.phone) ||
+                string.IsNullOrWhiteSpace(b.roomtype) ||
+                string.IsNullOrWhiteSpace(b.CheckInDate) ||
+                string.IsNullOrWhiteSpace(b.CheckOutDate) ||
+                b.Guests <= 0 ||
+                b.Price_Per_Nigh <= 0 ||
+                b.TotalPrice <= 0)
+            {
+                ViewData["status"] = "Please fill in all the required fields.";
+                return View();
+            }
+
+
+            //connection to database
+
             string path = "Data Source=pralhad\\SQLEXPRESS;Initial Catalog=ItHotel;Integrated Security=True";
              SqlConnection sc=new SqlConnection(path);
             sc.Open();
 
-            ViewData["status"] = "Booksuccessfully successfully";
+            ViewData["status"] = "Book Successfully";
 
             string insert = "insert into roombook(custimername,email,phone,roomtype,CheckInDate,CheckOutDate,Guests,Price_Per_Nigh,TotalPrice )" +
                 " values('"+b.custimername+"','"+ b.email+"' , '"+ b.phone+"' ,'"+ b.roomtype+"' , '"+ b .CheckInDate+"' , '"+ b. CheckOutDate+"' , '"+b.Guests+"','"+ b.Price_Per_Nigh+"' ,'"+b. TotalPrice + "')";

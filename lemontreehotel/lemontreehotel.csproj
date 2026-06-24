@@ -145,6 +145,8 @@
     <Content Include="Views\rooms\view_details_luxary.cshtml" />
     <Content Include="Views\rooms\view_details_business.cshtml" />
     <Content Include="Views\rooms\book_room.cshtml" />
+    <Content Include="Views\Manager\managerdashbord.cshtml" />
+    <Content Include="Views\Manager\User.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

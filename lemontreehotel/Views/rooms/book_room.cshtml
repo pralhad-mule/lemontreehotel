@@ -1,4 +1,5 @@
 ﻿@Model lemontreehotel.models.Booking
+
 {
     Layout = null;
 }
@@ -135,15 +136,15 @@
                 </div>
 
                 <div>
-                    <label>heck-Out</label>
+                    <label>check-Out</label>
                     <input type="date" name="CheckOutDate">
                 </div>
             </div>
 
             <div class="row">
-                <div>
+                <div id="aadhaarContainer">
                     <label>No-Guests</label>
-                    <input type="number" placeholder="No. of guests" name="Guests">
+                    <input type="number" placeholder="No. of guests" name="Guests" id="Guests">
                 </div>
 
                 <div>
@@ -151,17 +152,14 @@
                     <input type="number" placeholder="₹" name="Price_Per_Nigh">
 
                 </div>
+
                 <div>
                     <label>TotalPrice </label>
                     <input type="number" placeholder="₹" name="totalprice" id="totalprice">
 
                 </div>
             </div>
-
-            @*<div class="price-box">
-                    Total Price will be show  after  selecting date....
-                </div>*@
-            <button type="submit">Book Now</button>
+                  <button type="submit">Book Now</button>
             @ViewData["status"]
 
 
@@ -247,6 +245,10 @@
             checkOut.addEventListener("change", calculateTotal);
 
         });
+
+        
+
+
     </script>
 
 </body>

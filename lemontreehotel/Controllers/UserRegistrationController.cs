@@ -45,12 +45,11 @@ namespace lemontreehotel.Controllers
             if (k.password != k.confirm_password)
             {
                 ViewData["status"] = "❌ Password does not match!";
+                return View();
+            }
 
-            }
-            else
-            {
-                ViewData["status"] = "❌ Password is match!";
-            }
+
+
             // Database connection
             string path = "Data Source=pralhad\\SQLEXPRESS;Initial Catalog=ItHotel;Integrated Security=True";
             SqlConnection sc = new SqlConnection(path);
